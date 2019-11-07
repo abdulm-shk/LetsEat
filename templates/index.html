@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{t}}</title>  
+    <link href="static/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- href="/static/assets/style.css"-->          
+        <!-- <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/style.css')}}" >  
+        <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/emoji.css')}}" >  
+        <script src="{{ url_for('static',filename='assets/twemoji.min.js')}}"></script>    
+        <script src="{{ url_for('static',filename='assets/emoji.js')}}"></script>   -->
+    </head> 
+
+<body>  
+    <h1>{{ h }}</h1> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-pills mr-auto">
+            <li class="nav-item">
+              <a class="nav-link {{a1}}" href="/list">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{a2}}" href="/">Incomplete</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{a3}}" href="/completed">Completed</a>
+            </li>
+        </ul>
+              <form class="form-inline pull-right my-2 my-lg-0" action="/search2"   method="GET">
+                <input class="form-control mr-sm-2" type="search" name="key" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+    </nav>
+
+    <hr>  
+    {% if todos[0] %}  
+    <div span="right">  
+    <form action="/search"   method="GET" >  
+        <table class="none" id="close">  
+        <tr>  
+        <td></td><td></td>  
+        <td><big><b>Search References:</b></big></td>  
+        <td><select name="refer" required>  
+            <option value="name">Task Name</option>  
+            <option value="desc">Description</option>  
+            <option value="date">Date</option>  
+            <option value="pr">Priority</option>  
+        </select></td>  
+        <td><input type="text" name="key" placeholder="Search Task" size="15" /></td>  
+        <td><button type="submit">Search</button></td>  
+        </tr>  
+        </table>  
+    </form>  
+    </div>  
+    <b><big>To-Do LIST :</big></b>  
+    <table class="table table-hover">
+        <thead>
+        <tr id="row">  
+            <th class="status">Status</th>  
+            <th class="name">Task Name</th>  
+            <th class="desc">Description Name</th>  
+            <th class="date">Date</th>  
+            <th class="pr">Priority</th>  
+        <th class="func1">Remove</th>  
+        <th class="func2">Modify</th>  
+        </tr>
+       
+    </thead>  
+    <tbody>
+    {% for todo in todos %}  
+        <tr class="datas">  
+            <td><a href="./done?_id={{ todo['_id'] }}"><input type="image" src="static/images/{{todo['done']}}.png" alt="Submit ME"></a></td>  
+            <td class="name">{{ todo["name"] }}</td>  
+            <td class="desc">{{ todo["desc"] }}</td>  
+            <td class="date">{{ todo["date"] }}</td>  
+            <td class="pr">{{ todo["pr"] }}</td>  
+            <td><a class="btn btn-danger" href="./remove?_id={{ todo['_id'] }}">DELETE</a></td>  
+            <td><a class="btn btn-outline-info" href="./update?_id={{ todo['_id'] }}">EDIT</a></td>  
+        </tr>  
+    {% endfor %}  
+</tbody>
+    </table>  
+    {% else %}  
+        <h4>No Tasks in the List !!</h4>  
+    {% endif %}  
+    <hr/>    
+        <form action="/action" method="POST">
+                <div class="form-group">
+                  <label for="name">Task Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Taskname">
+                </div>
+                <div class="form-group">
+                    <label for="desc">Task Description</label>
+                    <textarea class="form-control" id="desc" placeholder="Enter Description..." rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pr">Priority</label>
+                    <select class="custom-select" id="pr" placeholder="Priority">
+                </div>
+                <button type="submit">Submit</button>
+        </form>
+    <script>  
+  
+    </script>  <table class="table table-hover">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/custom.js"></script>
+</body>  
+</html>  

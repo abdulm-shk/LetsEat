@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  background-color: #f5428c;
+  height: 100px;
+}
+
+h1 {
+  color: white;
+  float: right;
+  padding-top: 30px;
+}
+img {
+  margin: 20px;
+  float: left;
+}
+
+@media only screen and (max-width: 450px) {
+  #header-title {
+    font-size: 20px;
+    padding-top: 40px;
+  }
+}

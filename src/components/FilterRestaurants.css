@@ -1,0 +1,32 @@
+.main-view {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.restaurants-map {
+  justify-content: flex-start;
+  width: 70%;
+}
+
+.restaurants-list {
+  justify-content: flex-end;
+  width: 35%;
+}
+
+@media only screen and (max-width: 717px) {
+  .main-view {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .restaurants-map {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .restaurants-list {
+    display: none;
+  }
+}

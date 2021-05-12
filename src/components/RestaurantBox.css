@@ -1,0 +1,36 @@
+.sublist {
+  overflow-y: scroll;
+  height: 100vh;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  border: thick double yellow;
+  text-align: center;
+  color: aliceblue;
+  background-color: #42aaf5;
+  margin-top: 10px;
+}
+.restaurant-title {
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+.box-image img {
+  border-radius: 10px;
+}
+
+.add-reviews {
+  margin-bottom: 10px;
+}
+
+.box-image {
+  width: 200px;
+  height: 200px;
+}
